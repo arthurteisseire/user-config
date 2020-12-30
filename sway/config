@@ -253,20 +253,17 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Autostart applications
-#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id 'nm-applet --indicator'
+# Gamma & Brightness
 exec --no-startup-id 'gammastep -O 4000 -b 0.7 -P'
-#exec --no-startup-id xfce4-power-manager
-#exec --no-startup-id pamac-tray
-#exec --no-startup-id clipit
-#exec --no-startup-id blueman-manager
-#exec --no-startup-id blueman-applet
-#exec --no-startup-id sbxkb
-#exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
+bindsym $mod+1 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -b 1 -P'
+bindsym $mod+2 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 5000 -b 1 -P'
+bindsym $mod+3 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 4000 -b 0.8 -P'
+bindsym $mod+4 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 3400 -b 0.7 -P'
+bindsym $mod+5 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 3000 -b 0.6 -P'
+bindsym $mod+6 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 2700 -b 0.5 -P'
+
+# Autostart applications
+exec --no-startup-id 'nm-applet --indicator'
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
