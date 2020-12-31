@@ -1,12 +1,11 @@
-# i3 config file (v4)
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# sway config file
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
 xwayland enable
 # set default desktop layout (default is tiling)
-# workspace_layout tabbed <stacking|tabbed>
+# workspace_layout tabbed
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 0
@@ -27,23 +26,8 @@ floating_modifier $mod
 bindsym $mod+q kill
 
 # start program launcher
-#bindsym $mod+e exec --no-startup-id dmenu_recency
 bindsym $mod+e exec --no-startup-id wofi --show drun
 
-# launch categorized menu
-bindsym $mod+y exec --no-startup-id morc_menu
-
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-#exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
-
-################################################################################################
 
 # Brightness
 bindsym XF86MonBrightnessDown exec "brightnessctl set 2%-"
@@ -53,6 +37,9 @@ bindsym XF86MonBrightnessUp exec "brightnessctl set +2%"
 bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
 bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
 bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+
+# Microphone
+bindsym XF86AudioMicMute exec 'pactl set-source-mute @DEFAULT_SOURCE@ toggle'
 
 
 # focus_follows_mouse no
@@ -92,41 +79,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-
-
-
-### This is the config to have workspace of workspaces ###
-
-#set $exec_i3_groups exec --no-startup-id i3-workspace-groups
-
-# Switch active workspace group
-#bindsym $mod+1 exec --no-startup-id i3-switch-active-workspace-group
-
-# Assign workspace to a group
-#bindsym $mod+Shift+1 exec --no-startup-id i3-assign-workspace-to-group
-
-#bindsym $mod+a $exec_i3_groups workspace-number $ws1
-#bindsym $mod+s $exec_i3_groups workspace-number $ws2
-#bindsym $mod+d $exec_i3_groups workspace-number $ws3
-#bindsym $mod+f $exec_i3_groups workspace-number $ws4
-#bindsym $mod+g $exec_i3_groups workspace-number $ws5
-#bindsym $mod+h $exec_i3_groups workspace-number $ws6
-#bindsym $mod+j $exec_i3_groups workspace-number $ws7
-#bindsym $mod+k $exec_i3_groups workspace-number $ws8
-#bindsym $mod+l $exec_i3_groups workspace-number $ws9
-#bindsym $mod+semicolon $exec_i3_groups workspace-number $ws10
-
-#bindsym $mod+Shift+a $exec_i3_groups move-to-number $ws1
-#bindsym $mod+Shift+s $exec_i3_groups move-to-number $ws2
-#bindsym $mod+Shift+d $exec_i3_groups move-to-number $ws3
-#bindsym $mod+Shift+f $exec_i3_groups move-to-number $ws4
-#bindsym $mod+Shift+g $exec_i3_groups move-to-number $ws5
-#bindsym $mod+Shift+h $exec_i3_groups move-to-number $ws6
-#bindsym $mod+Shift+j $exec_i3_groups move-to-number $ws7
-#bindsym $mod+Shift+k $exec_i3_groups move-to-number $ws8
-#bindsym $mod+Shift+l $exec_i3_groups move-to-number $ws9
-#bindsym $mod+Shift+semicolon $exec_i3_groups move-to-number $ws10
-
 
 
 # Workspace names
@@ -297,11 +249,6 @@ exec --no-startup-id 'nm-applet --indicator'
 #set_from_resource $term_color15    color15
 
 
-bar {
-	swaybar_command waybar
-}
-
-
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
   client.focused          #556064 #556064 #80FFF9 #FDF6E3
@@ -375,26 +322,23 @@ bindsym $mod+o exec postman
 assign [class="Postman"] $ws7
 
 
-# Startup Applications
-#exec --no-startup-id redshift-gtk
-exec --no-startup-id low_brightness
-
 # Other Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F3 exec pcmanfm
-bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# Notification manager
-exec --no-startup-id dunst
-
 # Pomodoro start and end notifications
-bindsym $mod+Control+p exec notify-send --icon=gtk-info Pomodoro "Focus for 25 minutes" && sleep 2500 && i3exit lock
+bindsym $mod+Control+p exec notify-send --icon=gtk-info Pomodoro "Focus for 25 minutes" && sleep 2500 && swaymsg lock
 bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Take 5 minutes break" && sleep 500 && bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Break finished"
 
+
+# Waybar
+exec --no-startup-id waybar
+bindsym $mod+m exec 'pidof waybar; if [ $? = 0 ]; then kill `pidof waybar`; else waybar; fi'
+
+# Keyboard
+bindsym $mod+n input * xkb_switch_layout fr
+input * xkb_layout us-custom
+input * repeat_delay 300
+input * repeat_rate 25
