@@ -121,35 +121,6 @@ bindsym $mod+Shift+k move container to workspace $ws8
 bindsym $mod+Shift+l move container to workspace $ws9
 bindsym $mod+Shift+semicolon move container to workspace $ws10
 
-# Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-#for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-
 # switch to workspace with urgent window automatically
 #for_window [urgent=latest] focus
 
@@ -324,10 +295,12 @@ bindsym $mod+Control+p exec notify-send --icon=gtk-info Pomodoro "Focus for 25 m
 bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Take 5 minutes break" && sleep 300 && bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Break finished"
 
 # Keyboard
-bindsym $mod+F12 input * xkb_switch_layout next
-input * xkb_layout us-custom,fr
-input * repeat_delay 300
-input * repeat_rate 25
+bindsym $mod+F12 input "type:keyboard" xkb_switch_layout next
+input "type:keyboard" {
+    xkb_layout us-custom,fr
+    repeat_delay 300
+    repeat_rate 25
+}
 
 # Waybar (must be at the end)
 bindsym $mod+m exec 'pidof waybar; if [ $? = 0 ]; then kill `pidof waybar`; else waybar; fi'
