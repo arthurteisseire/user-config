@@ -6,4 +6,4 @@
 !/sway/**
 !/mako/**
 !/xkb/**
-!/nvim/**
+!/nixpkgs/**

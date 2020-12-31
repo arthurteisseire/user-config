@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
-let g:netrw_dirhist_4='/home/arthur/projects/notification/shell'
-let g:netrw_dirhist_3='/nix/store/023s7q6r54g6jkcydyfcnggmlv9k1ikg-nixos-20.09.2190.78dc359abf8/nixos/pkgs/applications/window-managers/sway'
-let g:netrw_dirhist_2='/nix'
-let g:netrw_dirhist_1='/etc/nixos'
