@@ -338,7 +338,7 @@ exec --no-startup-id waybar
 bindsym $mod+m exec 'pidof waybar; if [ $? = 0 ]; then kill `pidof waybar`; else waybar; fi'
 
 # Keyboard
-bindsym $mod+n input * xkb_switch_layout fr
-input * xkb_layout us-custom
+bindsym $mod+F12 input * xkb_switch_layout next
+input * xkb_layout us-custom,fr
 input * repeat_delay 300
 input * repeat_rate 25
