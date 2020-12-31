@@ -292,14 +292,6 @@ mode "$mode_ide" {
 bindsym $mod+Tab move workspace to output left
 
 #####################
-#     Keyboard      #
-#####################
-exec --no-startup-id "setxkbmap -option 'grp:ctrls_toggle' -layout us-custom,fr"
-#exec --no-startup-id "setxkbmap us -variant altgr-intl"
-#exec --no-startup-id xset r rate 280 30
-
-
-#####################
 #       Apps        #
 #####################
 
@@ -329,16 +321,15 @@ bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Pomodoro start and end notifications
-bindsym $mod+Control+p exec notify-send --icon=gtk-info Pomodoro "Focus for 25 minutes" && sleep 2500 && swaymsg lock
-bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Take 5 minutes break" && sleep 500 && bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Break finished"
-
-
-# Waybar
-exec --no-startup-id waybar
-bindsym $mod+m exec 'pidof waybar; if [ $? = 0 ]; then kill `pidof waybar`; else waybar; fi'
+bindsym $mod+Control+p exec notify-send --icon=gtk-info Pomodoro "Focus for 25 minutes" && sleep 1500 && swaylock
+bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Take 5 minutes break" && sleep 300 && bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Break finished"
 
 # Keyboard
 bindsym $mod+F12 input * xkb_switch_layout next
 input * xkb_layout us-custom,fr
 input * repeat_delay 300
 input * repeat_rate 25
+
+# Waybar (must be at the end)
+bindsym $mod+m exec 'pidof waybar; if [ $? = 0 ]; then kill `pidof waybar`; else waybar; fi'
+exec --no-startup-id waybar
