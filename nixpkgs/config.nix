@@ -18,6 +18,7 @@
         set nocompatible
         set encoding=utf-8
         set hlsearch
+        set incsearch
         set history=700
         set t_Co=256
         set background=dark
