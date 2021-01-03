@@ -175,15 +175,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Gamma & Brightness
-exec --no-startup-id 'gammastep -O 4000 -b 0.7 -P'
-bindsym $mod+1 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -b 1 -P'
-bindsym $mod+2 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 5000 -b 1 -P'
-bindsym $mod+3 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 4000 -b 0.8 -P'
-bindsym $mod+4 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 3400 -b 0.7 -P'
-bindsym $mod+5 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 3000 -b 0.6 -P'
-bindsym $mod+6 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 2700 -b 0.5 -P'
-
 # Autostart applications
 exec --no-startup-id 'nm-applet --indicator'
 
@@ -301,6 +292,20 @@ input "type:keyboard" {
     repeat_delay 300
     repeat_rate 25
 }
+
+# Displays
+exec_always pkill kanshi ; exec kanshi
+
+# Gamma & Brightness
+exec --no-startup-id 'gammastep -O 4000 -b 0.7 -P'
+bindsym $mod+1 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -b 1 -P'
+bindsym $mod+2 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 5000 -b 1 -P'
+bindsym $mod+3 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 4500 -b 0.9 -P'
+bindsym $mod+4 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 4000 -b 0.8 -P'
+bindsym $mod+5 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 3400 -b 0.7 -P'
+bindsym $mod+6 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 3000 -b 0.6 -P'
+bindsym $mod+7 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 2700 -b 0.5 -P'
+
 
 # Waybar (must be at the end)
 bindsym $mod+m exec 'pidof waybar; if [ $? = 0 ]; then kill `pidof waybar`; else waybar; fi'
