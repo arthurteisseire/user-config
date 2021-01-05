@@ -27,7 +27,7 @@ xkb_symbols "basic" {
     key <AD05> { [         t,          T,         thorn,            THORN ] };
     key <AD06> { [         y,          Y,    udiaeresis,       Udiaeresis ] };
     key <AD07> { [         u,          U,        ugrave,           Ugrave ] };
-    key <AD08> { [         i,          I,     idiaresis,        Idiaresis ] };
+    key <AD08> { [         i,          I,    idiaeresis,       Idiaeresis ] };
     key <AD09> { [         o,          O,        oacute,           Oacute ] };
     key <AD10> { [         p,          P,    odiaeresis,       Odiaeresis ] };
     key <AD11> { [ bracketleft,  braceleft,  guillemotleft, guillemotleft ] };

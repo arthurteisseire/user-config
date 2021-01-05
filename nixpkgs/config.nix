@@ -27,13 +27,10 @@
         set nojoinspaces
         set number
         set shiftround
-        colorscheme alduin
+        colorscheme sierra
         set nolbr
         set tw=0
-        " Visual mode pressing * or # searches for the current selection
-        " Super useful! From an idea by Michael Naumann
-        vnoremap <silent> * :call VisualSelection('f')<CR>
-        vnoremap <silent> # :call VisualSelection('b')<CR>
+        set pastetoggle=<C-p>
         let mapleader = ","
         " Disable highlight when <leader><cr> is pressed
         map <silent> <leader><cr> :noh<cr>
@@ -74,6 +71,7 @@
         let g:syntastic_cpp_include_dirs = [ 'src', 'build' ]
         let g:ycm_autoclose_preview_window_after_completion = 1
         let g:zig_fmt_autosave = 1
+
       '';
 
       vimrcConfig.vam.knownPlugins = pkgs.vimPlugins;
