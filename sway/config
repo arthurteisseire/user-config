@@ -281,9 +281,9 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# Pomodoro start and end notifications
-bindsym $mod+Control+p exec notify-send --icon=gtk-info Pomodoro "Focus for 25 minutes" && sleep 1500 && swaylock
-bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Take 5 minutes break" && sleep 300 && bindsym $mod+Control+s exec notify-send --icon=gtk-info Pomodoro "Break finished"
+# Pomodoro
+exec ~/.config/sway/toggle_pomodoro.sh
+bindsym $mod+F1 exec ~/.config/sway/toggle_pomodoro.sh
 
 # Keyboard
 bindsym $mod+F12 input "type:keyboard" xkb_switch_layout next
@@ -311,4 +311,4 @@ bindsym $mod+9 exec --no-startup-id 'kill `pidof gammastep` ; gammastep -O 2500 
 
 # Waybar (must be at the end)
 bindsym $mod+m exec 'pidof waybar; if [ $? = 0 ]; then kill `pidof waybar`; else waybar; fi'
-exec --no-startup-id waybar
+#exec --no-startup-id waybar
