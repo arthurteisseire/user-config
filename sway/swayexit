@@ -8,10 +8,10 @@ case "$1" in
         swaymsg exit
         ;;
     suspend)
-        systemctl suspend && swaylock
+        systemctl suspend && swaylock -c 000000
         ;;
     hibernate)
-        systemctl hibernate && swaylock
+        systemctl hibernate && swaylock -c 000000
         ;;
     reboot)
         reboot
