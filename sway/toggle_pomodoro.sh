@@ -3,12 +3,15 @@
 script_name="toggle_pomodoro"
 
 
-sentences[0]="Be enthusiast !!!"
-sentences[1]="Pleine présence !"
-sentences[2]="Today is a gift"
-sentences[3]="3 Breathes"
-sentences[4]="Slow down"
-sentences[5]="Set your goal"
+sentences[0]="Pleine présence !"
+sentences[1]="Today is a gift"
+sentences[2]="3 Breathes"
+sentences[3]="Slow down"
+sentences[4]="Définis simplement ton objectif"
+sentences[5]="Fais de ton mieux"
+sentences[6]="J'aime la vie"
+sentences[7]="J'aime ce que j'entreprends"
+sentences[8]="I am a warrior"
 
 
 killpy() {
@@ -25,6 +28,6 @@ else
     chosen_sentence=${sentences[$index]}
     notify-send -t 4000 --icon=gtk-info Pomodoro "$chosen_sentence"
     do sleep 1500
-    swaylock
+    ~/.config/sway/swayexit lock
   done
 fi

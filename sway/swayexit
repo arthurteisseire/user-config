@@ -2,7 +2,7 @@
 
 case "$1" in
     lock)
-        swaylock
+        swaylock -i ~/.config/sway/lock_img.jpg
         ;;
     logout)
         swaymsg exit
