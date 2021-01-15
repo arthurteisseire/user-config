@@ -1,5 +1,12 @@
 {
   packageOverrides = pkgs : with pkgs; rec {
+
+		my-python-packages = python-packages: with python-packages; [
+      requests
+			# other python packages you want
+		]; 
+		python-with-my-packages = pypy.withPackages my-python-packages;
+
     my_vim = vim_configurable.customize {
       name = "vim";
 
