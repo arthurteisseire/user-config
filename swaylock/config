@@ -1,0 +1,5 @@
+ignore-empty-password
+clock
+indicator
+timestr=%R
+datestr=
