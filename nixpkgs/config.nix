@@ -1,12 +1,84 @@
 {
   packageOverrides = pkgs : with pkgs; rec {
 
+    allowUnfree = true;
+
+    # VScode
+    extensions = (with pkgs.vscode-extensions; [
+      bbenoist.Nix
+      haxe
+    ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "vim";
+        publisher = "vscodevim";
+        version = "1.18.8";
+        sha256 = "0cvmnq932xsc8bi3jas764dq2irfvy14lwa0jak5ky9cjsp6h94g";
+      }
+      {
+        name = "markdown-preview-enhanced";
+        publisher = "shd101wyy";
+        version = "0.5.16";
+        sha256 = "0w5w2np8fkxpknq76yv8id305rxd8a1p84p9k0jwwwlrsyrz31q8";
+      }
+      {
+        name = "markdown-all-in-one";
+        publisher = "yzhang";
+        version = "3.4.0";
+        sha256 = "0ihfrsg2sc8d441a2lkc453zbw1jcpadmmkbkaf42x9b9cipd5qb";
+      }
+      {
+        name = "vshaxe";
+        publisher = "nadako";
+        version = "2.21.4";
+        sha256 = "1462fby2p0ar2gl167h9nfp3h91kx4lcqigy3b87wqrlli0dkdq7";
+      }
+      {
+        name = "haxe-extension-pack";
+        publisher = "vshaxe";
+        version = "1.3.0";
+        sha256 = "1h59qgxd1j7h9fbcb7dhym5j2gazfkmkvkywcgq6dk851a846wqq";
+      }
+      {
+        name = "haxe-hl";
+        publisher = "haxefoundation";
+        version = "1.1.1";
+        sha256 = "1x40rw3dpcr81imm95iibhz58ifqrfykvxqpqmvxh0scvnsxk7zl";
+      }
+      {
+        name = "nix-env-selector";
+        publisher = "arrterian";
+        version = "0.1.2";
+        sha256 = "1n5ilw1k29km9b0yzfd32m8gvwa2xhh6156d4dys6l8sbfpp2cv9";
+      }
+      {
+        name = "vscode-firefox-debug";
+        publisher = "firefox-devtools";
+        version = "2.9.1";
+        sha256 = "1xr1z96kd2lcamklc0x4sv0if8n78cr0ara5lmc7bh5afy0h085g";
+      }
+      {
+        name = "debugger-for-chrome";
+        publisher = "msjsdiag";
+        version = "4.12.12";
+        sha256 = "0nkzck3i4342dhswhpg4b3mn0yp23ipad228hwdf23z8b19p4b5g";
+      }
+    ];
+		vscode-with-extensions = pkgs.vscode-with-extensions.override {
+      vscodeExtensions = extensions;
+    };
+
+    # Nix direnv
+    programs.direnv.enable = true;
+    programs.direnv.enableNixDirenvIntegration = true;
+
+    # Python
 		my-python-packages = python-packages: with python-packages; [
       requests
 			# other python packages you want
 		]; 
 		python-with-my-packages = pypy.withPackages my-python-packages;
 
+    # Vim
     my_vim = vim_configurable.customize {
       name = "vim";
 

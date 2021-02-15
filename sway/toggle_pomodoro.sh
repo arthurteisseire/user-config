@@ -3,15 +3,14 @@
 script_name="toggle_pomodoro"
 
 
-sentences[0]="Pleine présence !"
+sentences[0]="Start with one line"
 sentences[1]="Today is a gift"
 sentences[2]="3 Breathes"
-sentences[3]="Slow down"
-sentences[4]="Définis simplement ton objectif"
-sentences[5]="Fais de ton mieux"
-sentences[6]="J'aime la vie"
-sentences[7]="J'aime ce que j'entreprends"
-sentences[8]="I am a warrior"
+sentences[3]="Attitude"
+sentences[4]="Fais de ton mieux"
+sentences[5]="Renforcement de la nuque"
+sentences[6]="I am a warrior"
+sentences[7]="Pose ta question"
 
 
 killpy() {

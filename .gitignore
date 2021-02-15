@@ -4,6 +4,7 @@
 !.gitignore
 !/waybar/**
 !/sway/**
+!/swaylock/**
 !/mako/**
 !/xkb/**
 !/nixpkgs/**
