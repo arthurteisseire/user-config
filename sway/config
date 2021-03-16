@@ -275,12 +275,6 @@ bindsym $mod+o exec postman
 assign [class="Postman"] $ws7
 
 
-# Other Applications
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
 # Pomodoro
 set $pomodoro ~/.config/sway/toggle_pomodoro.sh
 exec $pomodoro
@@ -299,6 +293,14 @@ exec_always pkill kanshi ; exec kanshi
 
 # Background
 output "*" bg ~/.config/sway/lock_img.jpg fill
+
+# Screenshots
+bindsym Print exec "GRIM_DEFAULT_DIR=~/pictures/screenshots grim"
+bindsym $mod+Print exec ~/.config/sway/screenshot.sh
+#bindsym Print exec --no-startup-id i3-scrot
+#bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+#bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+
 
 # Gamma & Brightness
 exec --no-startup-id 'gammastep -O 4000 -b 0.7 -P'
