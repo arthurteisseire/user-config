@@ -67,10 +67,6 @@
       vscodeExtensions = extensions;
     };
 
-    # Nix direnv
-    programs.direnv.enable = true;
-    programs.direnv.enableNixDirenvIntegration = true;
-
     # Python
 		my-python-packages = python-packages: with python-packages; [
       requests
