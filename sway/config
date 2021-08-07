@@ -295,7 +295,7 @@ exec_always pkill kanshi ; exec kanshi
 output "*" bg ~/.config/sway/lock_img.jpg fill
 
 # Screenshots
-bindsym Print exec "GRIM_DEFAULT_DIR=~/pictures/screenshots grim"
+bindsym Print exec "GRIM_DEFAULT_DIR=~/Pictures/screenshots grim"
 bindsym $mod+Print exec ~/.config/sway/screenshot.sh
 #bindsym Print exec --no-startup-id i3-scrot
 #bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
