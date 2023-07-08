@@ -4,7 +4,8 @@ xkb_symbols "basic" {
     name[Group1] = "A user-defined custom Layout";
 
     // Alphanumeric section
-    key <TLDE> { [     grave, asciitilde,    dead_grave, dead_tilde ] };
+    //key <TLDE> { [     grave, asciitilde,    dead_grave, dead_tilde ] };
+    key <TLDE> { [     grave, asciitilde,        egrave,       dead_tilde ] };
     key <AE01> { [         1,     exclam,    exclamdown,      onesuperior ] };
     key <AE02> { [         2,         at,   twosuperior, dead_doubleacute ] };
     key <AE03> { [         3, numbersign, threesuperior,      dead_macron ] };
@@ -25,8 +26,8 @@ xkb_symbols "basic" {
     key <AD05> { [         t,          T,         thorn,            THORN ] };
     key <AD06> { [         y,          Y,    udiaeresis,       Udiaeresis ] };
     key <AD07> { [         u,          U,        ugrave,           Ugrave ] };
-    key <AD08> { [         i,          I,    idiaeresis,       Idiaeresis ] };
-    key <AD09> { [         o,          O,        oacute,           Oacute ] };
+    key <AD08> { [         i,          I,   icircumflex,      Icircumflex ] };
+    key <AD09> { [         o,          O,   ocircumflex,      Ocircumflex ] };
     key <AD10> { [         p,          P,    odiaeresis,       Odiaeresis ] };
     key <AD11> { [ bracketleft,  braceleft,  guillemotleft, guillemotleft ] };
     key <AD12> { [bracketright, braceright, guillemotright,guillemotright ] };

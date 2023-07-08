@@ -50,7 +50,7 @@ bindsym XF86MonBrightnessUp exec "brightnessctl set 5%+; notify-send 'brightness
 bindsym XF86MonBrightnessDown exec "brightnessctl set 5%-; notify-send 'brightness down'"
 
 # Keyboard
-exec "xkbcomp -I$HOME/.config/xkb $HOME/.config/xkb/us-custom.xkb $DISPLAY"
+exec_always "xkbcomp -I$HOME/.config/xkb $HOME/.config/xkb/us-custom.xkb $DISPLAY"
 
 # focus_follows_mouse no
 
