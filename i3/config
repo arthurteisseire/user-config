@@ -43,8 +43,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 ################################################################################################
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 3; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 3; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "brightnessctl set 5%+; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "brightnessctl set 5%-; notify-send 'brightness down'"
 
 # focus_follows_mouse no
 
@@ -215,7 +215,7 @@ mode "$mode_system" {
 }
 
 # Lock screen
-bindsym $mod+w exec --no-startup-id i3exit lock
+bindsym $mod+w exec --no-startup-id i3lock
 
 
 # Resize window (you can also use the mouse for that)
@@ -399,9 +399,10 @@ bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+set $screenshot "scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png"
+bindsym Print exec --no-startup-id $screenshot
+bindsym $mod+Print --release exec --no-startup-id $screenshot -w
+bindsym $mod+Shift+Print --release exec --no-startup-id $screenshot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Notification manager
