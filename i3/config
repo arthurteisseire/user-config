@@ -18,6 +18,9 @@ hide_edge_borders none
 # is used in the bar {} block below.
 font xft:Incosolata 9
 
+# Bottom bar
+bindsym $mod+m bar mode toggle
+
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
